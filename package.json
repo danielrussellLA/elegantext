@@ -1,0 +1,17 @@
+{
+  "name": "elegantext",
+  "version": "1.0.0",
+  "description": "an app to help you quickly generate elegant css styling for your webpage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Russell",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "cors": "^2.7.1",
+    "express": "^4.13.4"
+  }
+}
