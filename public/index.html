@@ -1,50 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html >
   <head>
     <meta charset="utf-8">
     <title>EleganText</title>
     <!-- Dependencies -->
-    <script src='node_modules/angular/angular.min.js'></script>
+    <script src='../node_modules/angular/angular.min.js'></script>
+    <!-- CodeMirror -->
+    <script src='../node_modules/codemirror/lib/codemirror.js'></script>
+    <link href='../node_modules/codemirror/lib/codemirror.css' rel='stylesheet' type='text/css' />
+    <script src='../node_modules/codemirror/mode/css/css.js'></script>
+    <!-- Data -->
+    <script src='../fonts/fonts.json'></script>
+    <!-- Apps -->
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Italiana' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
     <!-- Styles -->
-    <!-- <script src='node_modules/bootstrap/dist/css/bootstrap.min.cs'></script> -->
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
 
-    <div class='container'>
+    <div class='container' ng-app="fontsHandlers" ng-controller="fontCtrl" >
       <!-- Headline -->
       <h1 class='headline'>EleganText</h1>
 
 
       <!-- Button -->
-      <button type="button" name="randomFont">Generate Another Style</button>
+      <div class="ng-style: {display: 'inline-block'}"   >
+        <button  class="ng-style: {letterSpacing: '1.1px'} "type="button" name="randomFont" ng-click="applyNewFont()" >Change Font</button>
+      </div>
 
       <!-- Text View -->
-      <div class='fontView'>
 
-        <h1>A Handy Style Generator</h1>
+      <div class='fontView' >
+        <div class="fontViewText" >
+          <h1 class="ng-style: {fontFamily: font}">{{ font }}</h1>
 
-        <p>
-          Bonbon gummi bears apple pie tootsie roll cake cookie fruitcake. Jelly cheesecake icing macaroon jelly beans candy pie. Cake macaroon cheesecake jelly beans cotton candy chocolate cake. Bonbon cotton candy chocolate bar sweet roll topping gummi bears gummi bears halvah. Cake pie dragée lemon drops lemon drops halvah. Gingerbread sweet dragée jujubes bonbon cake candy canes icing tootsie roll. Gummies gummi bears croissant jelly caramels cheesecake. Chocolate chocolate bar ice cream. Marshmallow gummies tootsie roll chupa chups bear claw cake macaroon toffee. Cotton candy pastry oat cake sugar plum chocolate cake cookie bonbon chocolate bar. Muffin dessert chupa chups dragée caramels icing chocolate bar. Powder bonbon tiramisu tart candy canes brownie brownie. Marzipan candy canes cookie sugar plum chocolate bonbon brownie powder wafer. Jelly beans soufflé bear claw dessert topping.
-        </p>
+          <p class="ng-style: {fontFamily: font}">
+            Halvah croissant macaroon chocolate cake marshmallow. Cake tootsie roll sesame snaps danish topping jelly beans macaroon. Cotton candy liquorice caramels cupcake lemon drops cupcake gingerbread. Cheesecake sesame snaps halvah. Sweet roll chocolate bar sweet roll brownie. Oat cake biscuit biscuit topping cake.
+          </p>
 
+          <p class="ng-style: {fontFamily: font}">
+            Bonbon gummi bears apple pie tootsie roll cake cookie fruitcake. Jelly cheesecake icing macaroon jelly beans candy pie. Cake macaroon cheesecake jelly beans cotton candy chocolate cake. Bonbon cotton candy chocolate bar sweet roll topping gummi bears gummi bears halvah. Cake pie dragée lemon drops lemon drops halvah. Gingerbread sweet dragée jujubes bonbon cake candy canes icing tootsie roll. Gummies gummi bears croissant jelly caramels cheesecake. Chocolate chocolate bar ice cream. Marshmallow gummies tootsie roll chupa chups bear claw cake macaroon toffee. Cotton candy pastry oat cake sugar plum chocolate cake cookie bonbon chocolate bar.
+          </p>
 
-        <p>
-          Halvah croissant macaroon chocolate cake marshmallow. Cake tootsie roll sesame snaps danish topping jelly beans macaroon. Cotton candy liquorice caramels cupcake lemon drops cupcake gingerbread. Cheesecake sesame snaps halvah. Sweet roll chocolate bar sweet roll brownie. Oat cake biscuit biscuit topping cake. Pie chupa chups jelly-o brownie gingerbread chocolate cake oat cake gummi bears. Muffin candy toffee marshmallow pudding candy apple pie jelly. Fruitcake donut liquorice liquorice powder. Wafer candy canes biscuit carrot cake bear claw candy. Cake cookie macaroon tart. Fruitcake carrot cake soufflé danish pastry biscuit biscuit gingerbread.
-        </p>
+        </div>
 
       </div>
 
-      <!-- CSS View -->
+
+      <!-- Text Editor -->
       <div class='cssView'>
         <h2>CSS</h2>
-        <textarea placeholder=' p { &#13;&#10;  font-family: "Actor", sans-serif; &#13;&#10;  font-weight: 1.5em; &#13;&#10; }'></textarea>
+        <textarea id='textEditor'></textarea>
       </div>
+
+
+      <script src='./app/textEditor.js'></script>
+      <script src='./app/fontsHandlers.js'></script>
+
   </div>
 
 
   </body>
+
 
 
   </html>

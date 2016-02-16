@@ -1,0 +1,42 @@
+var data = [{
+  "fonts": [
+    {
+      "name": "Source Sans Pro",
+      "url": "https://fonts.googleapis.com/css?family=Source+Sans+Pro"
+    },
+    {
+      "name": "Ubuntu",
+      "url": "https://fonts.googleapis.com/css?family=Ubuntu"
+    },
+    {
+      "name": "Crimson Text",
+      "url": "https://fonts.googleapis.com/css?family=Crimson+Text"
+    },
+    {
+      "name": "Roboto",
+      "url": "https://fonts.googleapis.com/css?family=Roboto"
+    },
+    {
+      "name": "Nunito",
+      "url": "https://fonts.googleapis.com/css?family=Nunito"
+    },
+    {
+      "name": "Italiana",
+      "url": "https://fonts.googleapis.com/css?family=Italiana"
+    },
+    {
+      "name": "Raleway",
+      "url": "https://fonts.googleapis.com/css?family=Raleway"
+    },
+    {
+      "name": "Georgia",
+      "url": "https://fonts.googleapis.com/css?family=Georgia"
+    },
+    {
+      "name": "Open Sans",
+      "url": "https://fonts.googleapis.com/css?family=Open+Sans"
+    }
+
+
+  ]
+}];
