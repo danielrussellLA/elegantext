@@ -33,7 +33,7 @@ angular.module('fontsHandlers', [])
   };
 
   var changeTextEditorFont = function(font){
-    var newText = '*  {\n  font-family: "' + font + '", sans-serif; \n}\n' +
+    var newText = '*  {\n  font-family: "' + font + '", sans-serif; \n  font-variant: 300;\n}\n' +
                         'h1  {\n  font-weight: lighter;\n  text-align: center;\n  letter-spacing: 3px;\n}' + '\n' +
                         'p  {\n  font-weight: lighter;\n  letter-spacing: 1.1px;\n  line-height: 2em;\n  text-indent:2em;\n}';
     textEditor.doc.setValue(newText);
