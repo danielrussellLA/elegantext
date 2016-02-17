@@ -1,16 +1,14 @@
 angular.module('fontsHandlers', [])
 .controller('fontCtrl', function($scope, NewFontGenerator){
   $scope.font = 'Source Sans Pro';
-  $scope.h1letterSpacing = '3px';
-  $scope.pletterSpacing = '3px';
   $scope.link;
   $scope.data = data[0].fonts;
-  // $scope.userInput = textEditor.doc.getValue();
-  //
-  // $scope.sassy = ".preview{" + $scope.userInput +  "}";
-  // sass.compile($scope.sassy, function(result){
-  //     $scope.sassy = result;
-  //   });
+
+    $scope.h1letterSpacing = '3px';
+    $scope.pletterSpacing = '1.1px';
+    $scope.h1fontWeight = 'lighter';
+    $scope.pfontWeight = 'lighter';
+    $scope.plineHeight = '2em';
 
   textEditor.on("change", function(cm, change) {
 
@@ -24,26 +22,47 @@ angular.module('fontsHandlers', [])
   $scope.applyStyle = function(){
     //on key press (change) in the textEditor, update the styles in fontView.
     var css = textEditor.doc.getValue();
+
+    // LETTER SPACING
     var letterSpacing = css.match(/letter-spacing: [\w]+/g);
     var h1Style = letterSpacing[0].match(/ \w+/g).join('');
     var pStyle = letterSpacing[1].match(/ \w+/g).join('');
 
-    var h1Spacing = '';
-    for(var i = 0; i < h1Style.length; i++){
-      if(h1Style[i] !== ' '){
-        h1Spacing += h1Style[i];
-      }
-    }
+    // FONT-WEIGHT
+    var fontWeight = css.match(/font-weight: [\w]+/g);
+    var h1Weight = fontWeight[0].match(/ \w+/g).join('');
+    var pWeight = fontWeight[1].match(/ \w+/g).join('');
 
-    
+    // LINE-HEIGHT
+    var lineHeight = css.match(/line-height: [\w]+/g);
+    console.log(lineHeight);
+    var plHeight = lineHeight[0].match(/ \w+/g).join('');
 
-    //$scope.h1 = temp;
+    // FORMAT STYLES PROPERLY
+    var h1Spacing = getRidOfSpaces(h1Style);
+    var pSpacing = getRidOfSpaces(pStyle);
+    var h1fontWeight = getRidOfSpaces(h1Weight);
+    var pfontWeight = getRidOfSpaces(pWeight);
+    var plineHeight = getRidOfSpaces(plHeight);
+
+   // APPLY STYLES
    $scope.h1letterSpacing = h1Spacing;
-  //  $scope.pletterSpacing = pSpacing
+   $scope.pletterSpacing = pSpacing;
+   $scope.h1fontWeight = h1fontWeight;
+   $scope.pfontWeight = pfontWeight;
+   $scope.plineHeight = plineHeight;
 
-  //  var getRidOfSpaces = function (str) {
-   //
-  //  }
+  //HELPER FUNCTIONS
+  function getRidOfSpaces (str) {
+     var result = '';
+     for(var i = 0; i < str.length; i++){
+       if(str[i] !== ' '){
+         result += str[i];
+       }
+     }
+     return result;
+   }
+
   };
 
   $scope.applyNewFont = function(){

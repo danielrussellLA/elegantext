@@ -1,5 +1,4 @@
 // CodeMirror Text Editor Box:
-
 var textEditor = CodeMirror.fromTextArea(document.getElementById('textEditor'), {
   lineNumbers: true,
   gutters: ["CodeMirror-linenumbers", "breakpoints"],
@@ -13,15 +12,3 @@ var defaultStyling = '*  {\n  font-family: "Source Sans Pro", sans-serif; \n  fo
 
 
 textEditor.doc.setValue(defaultStyling);
-
-// var text = textEditor.doc.getValue();
-// var tags = {};
-// 
-//
-// textEditor.on("change", function(cm, change) {
-//   var css = textEditor.doc.getValue();
-//   var fontWeight = css.match(/font-weight: [\w]+/g);
-//   tags[h1] = fontWeight[0];
-//   tags[p] = fontWeight[1];
-//   // console.log(h1FontWeight + ' -- ' + pFontWeight);
-// });
