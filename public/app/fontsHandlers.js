@@ -1,28 +1,61 @@
 angular.module('fontsHandlers', [])
 .controller('fontCtrl', function($scope, NewFontGenerator){
   $scope.font = 'Source Sans Pro';
+  $scope.h1letterSpacing = '3px';
+  $scope.pletterSpacing = '3px';
   $scope.link;
   $scope.data = data[0].fonts;
-  $scope.myStyle;
+  // $scope.userInput = textEditor.doc.getValue();
+  //
+  // $scope.sassy = ".preview{" + $scope.userInput +  "}";
+  // sass.compile($scope.sassy, function(result){
+  //     $scope.sassy = result;
+  //   });
+
+  textEditor.on("change", function(cm, change) {
+
+      $scope.applyStyle();
+      $scope.$apply();
+      console.log($scope.h1letterSpacing);
+
+  });
 
 
+  $scope.applyStyle = function(){
+    //on key press (change) in the textEditor, update the styles in fontView.
+    var css = textEditor.doc.getValue();
+    var letterSpacing = css.match(/letter-spacing: [\w]+/g);
+    var h1Style = letterSpacing[0].match(/ \w+/g).join('');
+    var pStyle = letterSpacing[1].match(/ \w+/g).join('');
+
+    var h1Spacing = '';
+    for(var i = 0; i < h1Style.length; i++){
+      if(h1Style[i] !== ' '){
+        h1Spacing += h1Style[i];
+      }
+    }
+
+    
+
+    //$scope.h1 = temp;
+   $scope.h1letterSpacing = h1Spacing;
+  //  $scope.pletterSpacing = pSpacing
+
+  //  var getRidOfSpaces = function (str) {
+   //
+  //  }
+  };
 
   $scope.applyNewFont = function(){
     var fontInfo = NewFontGenerator.getRandomFont($scope.data);
     $scope.font = fontInfo.name;
     $scope.link = '<link href="' + fontInfo.url + '" rel="stylesheet" type="text/css">';
-    console.log($scope.link);
-    $scope.myStyle = '{ fontFamily: "'  + $scope.font + '"; }';
     NewFontGenerator.changeTextEditorFont($scope.font);
-    console.log($scope.myStyle);
-    //$scope.renderNewFont();
   };
 
-  // $scope.renderNewFont = function(){
-  //   var fontFamily = $scope.font;
-  //   $scope.myStyles = ".something:after { font-family: " + fontFamily + "; }";
-  //
-  // };
+  $scope.autoRender = function(){
+    NewFontGenerator.dynamicStyleUpdate();
+  };
 })
 .factory('NewFontGenerator', function(){
 
@@ -39,9 +72,14 @@ angular.module('fontsHandlers', [])
     textEditor.doc.setValue(newText);
   };
 
+  var dynamicStyleUpdate = function(scope){
+
+  };
+
   return {
     getRandomFont: getRandomFont,
-    changeTextEditorFont: changeTextEditorFont
+    changeTextEditorFont: changeTextEditorFont,
+    dynamicStyleUpdate: dynamicStyleUpdate
   };
 
 });

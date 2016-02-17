@@ -38,6 +38,7 @@ h2 {
   letter-spacing: 3px;
 }
 
+
 p {
   /*font-family: 'Actor', sans-serif;*/
   font-weight: lighter;
@@ -133,6 +134,27 @@ textarea:focus {
   /*margin-top: 20px;*/
 }
 
+.htmlInput {
+  display: inline-block;
+  width: 400px;
+  height: 20px;
+  margin-left: 50px;
+
+}
+
+.htmlInput input {
+  display: inline-block;
+  width: 400px;
+  height: 20px;
+
+}
+
+h3 {
+  /*font-family: 'Actor', sans-serif;*/
+  font-weight: lighter;
+  letter-spacing: 3px;
+}
+
 
 
 /************** Media Queries *******************/
@@ -180,7 +202,7 @@ textarea:focus {
     margin-left: 310px;
     position: inherit;
   }
-  
+
   h2 {
     text-align: center;
   }
