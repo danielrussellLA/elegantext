@@ -1,11 +1,12 @@
 angular.module('fontsHandlers', [])
 .controller('fontCtrl', function($scope, NewFontGenerator){
   $scope.font = 'Source Sans Pro';
-  $scope.link;
+  // $scope.fontFam = $scope.font;
+  $scope.link = '<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">';
   $scope.data = data[0].fonts;
 
     $scope.h1letterSpacing = '3px';
-    $scope.pletterSpacing = '1.1px';
+    $scope.pletterSpacing = '1px';
     $scope.h1fontWeight = 'lighter';
     $scope.pfontWeight = 'lighter';
     $scope.plineHeight = '2em';
@@ -14,7 +15,6 @@ angular.module('fontsHandlers', [])
 
       $scope.applyStyle();
       $scope.$apply();
-      console.log($scope.h1letterSpacing);
 
   });
 
@@ -28,6 +28,11 @@ angular.module('fontsHandlers', [])
     var h1Style = letterSpacing[0].match(/ \w+/g).join('');
     var pStyle = letterSpacing[1].match(/ \w+/g).join('');
 
+    // // FONT-FAMILY
+    // var family = css.match(/font-family: "[\w ]+"/g);
+    // console.log(family);
+    // var fam = family[0].match(/ "[\w ]+"/g).join('');
+    // console.log(fam);
     // FONT-WEIGHT
     var fontWeight = css.match(/font-weight: [\w]+/g);
     var h1Weight = fontWeight[0].match(/ \w+/g).join('');
@@ -35,10 +40,10 @@ angular.module('fontsHandlers', [])
 
     // LINE-HEIGHT
     var lineHeight = css.match(/line-height: [\w]+/g);
-    console.log(lineHeight);
     var plHeight = lineHeight[0].match(/ \w+/g).join('');
 
     // FORMAT STYLES PROPERLY
+    // var fontFam = getRidOfSpaces(fam);
     var h1Spacing = getRidOfSpaces(h1Style);
     var pSpacing = getRidOfSpaces(pStyle);
     var h1fontWeight = getRidOfSpaces(h1Weight);
@@ -46,6 +51,7 @@ angular.module('fontsHandlers', [])
     var plineHeight = getRidOfSpaces(plHeight);
 
    // APPLY STYLES
+  //  $scope.fontFam = fontFam;
    $scope.h1letterSpacing = h1Spacing;
    $scope.pletterSpacing = pSpacing;
    $scope.h1fontWeight = h1fontWeight;
@@ -87,7 +93,7 @@ angular.module('fontsHandlers', [])
   var changeTextEditorFont = function(font){
     var newText = '*  {\n  font-family: "' + font + '", sans-serif; \n  font-variant: 300;\n}\n' +
                         'h1  {\n  font-weight: lighter;\n  text-align: center;\n  letter-spacing: 3px;\n}' + '\n' +
-                        'p  {\n  font-weight: lighter;\n  letter-spacing: 1.1px;\n  line-height: 2em;\n  text-indent:2em;\n}';
+                        'p  {\n  font-weight: lighter;\n  letter-spacing: 1px;\n  line-height: 2em;\n  text-indent:2em;\n}';
     textEditor.doc.setValue(newText);
   };
 

@@ -120,7 +120,7 @@ textarea:focus {
   margin-left: 60px;
   width: 700px;
   box-shadow: 3px 3px 4px darkgrey ;
-
+  overflow: hidden;
 }
 
 .fontViewText {
