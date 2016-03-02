@@ -49,46 +49,6 @@ p {
 }
 
 
-button {
-  /*font-family: 'Actor', sans-serif;*/
-  font-weight: lighter;
-  height: 70px;
-  width: 350px;
-  /*display: block;*/
-  /*letter-spacing: 2px;*/
-  border: none;
-  box-shadow: 3px 3px 4px darkgrey ;
-  /*clear: both;*/
-  margin: auto;
-  /*margin-top: 25px;*/
-  margin-bottom: 15px;
-  margin-left: 50px;
-
-  font-size: 25px;
-  border-radius: 8px;
-  background-color: chartreuse;
-  color: white;
-}
-
-button:hover {
-  /*background-color: #6dda00;*/
-  background-color: #6dda00;
-  color: white;
-  /*transition: background-color 0.3s ease-in,
-              color 0.3s ease-in;*/
-}
-button:active {
-  /*background-color: #cf6c7e;*/
-  background-color: #55ab00 ;
-  color: white;
-  border: none;
-  box-shadow: 0px 0px;
-}
-
-button:focus {
-  outline: 0;
-}
-
 
 textarea {
   font-family: 'Courier', sans-serif;
@@ -136,17 +96,19 @@ textarea:focus {
 
 .htmlInput {
   display: inline-block;
+  float: left;
+  margin-bottom: 70px;
   width: 400px;
   height: 20px;
   margin-left: 50px;
-  margin-top: 25px;
+  /*margin-top: 25px;*/
 }
 
 .htmlInput input {
   display: inline-block;
   width: 400px;
   height: 20px;
-
+  float: left;
 }
 
 h3 {
@@ -156,10 +118,56 @@ h3 {
 }
 
 
+button {
+  /*font-family: 'Actor', sans-serif;*/
+  font-weight: lighter;
+  height: 70px;
+  width: 400px;
+  /*display: block;*/
+  /*letter-spacing: 2px;*/
+  border: none;
+  box-shadow: 3px 3px 4px darkgrey ;
+  /*clear: both;*/
+  margin: auto;
+  /*margin-top: 25px;*/
+  margin-bottom: 15px;
+  margin-left: 50px;
+  float: left;
+  font-size: 25px;
+  border-radius: 8px;
+  background-color: chartreuse;
+  color: white;
+}
+
+button:hover {
+  /*background-color: #6dda00;*/
+  background-color: #6dda00;
+  color: white;
+  /*transition: background-color 0.3s ease-in,
+              color 0.3s ease-in;*/
+}
+button:active {
+  /*background-color: #cf6c7e;*/
+  background-color: #55ab00 ;
+  color: white;
+  border: none;
+  box-shadow: 0px 0px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+
+.font-controls {
+  width: 350px;
+  float: left;
+}
+
 
 /************** Media Queries *******************/
 
-@media (max-width: 1290px){
+@media (max-width: 1150px){
   .container {
     max-width: 900px;
     min-width: 700px;
@@ -168,16 +176,25 @@ h3 {
 
   button {
     display: block;
+    /*float: left;*/
     margin: auto;
+    margin-left: 60px;
+    margin-top: 15px;
+    /*margin-left: -15px;*/
     margin-bottom: 25px;
     width: 700px;
     /*position: inherit;*/
   }
-
+  .headline {
+    margin-left: -70px;
+  }
   .cssView {
     display: block;
     margin: 0 auto;
-    margin-left: 60px;
+    margin-left: 175px;
+  }
+  .htmlInput {
+    margin-left: 175px;
   }
 
   textarea {
@@ -194,12 +211,14 @@ h3 {
 @media(max-width: 1150px){
   button {
     display: block;
-    margin-left: 100px;
+    margin-left: 60px;
   }
   .headline {
     /*display: block;*/
     text-align: left;
-    margin-left: 310px;
+    margin-left: 190px;
+    /*margin-left: -70px;*/
+
     position: inherit;
   }
 
@@ -215,14 +234,27 @@ h3 {
     margin-left: 85px;
   }
   button {
-    width: 300px;
+    width: 375px;
     font-size: 20px;
-    margin-left: 40px;
+    float: left;
+    clear: both;
+    margin-left: 5px;
   }
   .fontView {
-    width: 270px;
+    width: 375px;
     margin-left: 5px;
 
+  }
+  .htmlInput {
+    float: left;
+    clear: both;
+    margin-bottom: 70px;
+    margin-left: 5px;
+    width: 375px;
+  }
+  .fontViewText {
+    margin: 0px;
+    padding: 15px;
   }
   h1 {
     font-size: 1.5em;
@@ -232,7 +264,8 @@ h3 {
     line-height: 1.75em;
   }
   .cssView {
-    margin-left: 40px;
+    margin-left: 0px;
+    /*width: 25px;*/
   }
   h2 {
     font-size: 1em;

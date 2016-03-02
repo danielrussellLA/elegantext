@@ -6,11 +6,11 @@
     <!-- Dependencies -->
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js'></script>
     <!-- CodeMirror -->
-    <script src='../codemirror/lib/codemirror.js'></script>
-    <link href='../codemirror/lib/codemirror.css' rel='stylesheet' type='text/css' />
-    <script src='../node_modules/codemirror/mode/css/css.js'></script>
+    <script src='./codemirror/lib/codemirror.js'></script>
+    <link href='./codemirror/lib/codemirror.css' rel='stylesheet' type='text/css' />
+    <script src='./codemirror/mode/css/css.js'></script>
     <!-- Data -->
-    <script src='../fonts/fonts.json'></script>
+    <script src='./fonts/fonts.json'></script>
     <!-- Apps -->
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
@@ -32,12 +32,6 @@
       <!-- Headline -->
       <h1 class='headline'>EleganText</h1>
 
-
-      <!-- Button -->
-      <div class="ng-style: {display: 'inline-block'}"   >
-        <button  class="ng-style: {letterSpacing: '1.1px'} "type="button" name="randomFont" ng-click="applyNewFont()" >Change Font</button>
-      </div>
-
       <!-- Text View -->
       <div class='fontView' >
 
@@ -55,16 +49,24 @@
       </div>
 
 
-      <!-- Text Editor -->
-      <div class='cssView'>
-        <h2>CSS</h2>
-        <textarea id='textEditor'></textarea>
+      <!-- Button -->
+      <div class="font-controls">
+        <div class="ng-style: {display: 'inline-block'}"   >
+          <button  class="ng-style: {letterSpacing: '1.1px'} "type="button" name="randomFont" ng-click="applyNewFont()" >Change Font</button>
+        </div>
+
+        <div class='htmlInput'>
+          <h2>HTML Link</h2>
+          <input type='url' value={{link}}></input>
+        </div>
+
+        <!-- Text Editor -->
+        <div class='cssView'>
+          <h2>CSS</h2>
+          <textarea id='textEditor'></textarea>
+        </div>
       </div>
 
-      <div class='htmlInput'>
-        <h3>HTML Link</h3>
-        <input type='url' value={{link}}></input>
-      </div>
 
 
       <script src='./app/textEditor.js'></script>
