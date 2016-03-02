@@ -10,5 +10,5 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-app.listen(8000);
+app.listen(process.env.PORT ||8000);
 console.log('listening on 8000')
