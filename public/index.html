@@ -9,7 +9,7 @@
     <script src='./codemirror/lib/codemirror.js'></script>
     <link href='./codemirror/lib/codemirror.css' rel='stylesheet' type='text/css' />
     <script src='./codemirror/mode/css/css.js'></script>
-    
+
     <!-- Data -->
     <script src='./fonts/fonts.json'></script>
     <!-- Apps -->
@@ -23,18 +23,19 @@
     <link href='https://fonts.googleapis.com/css?family=Actor:400,100,200,300' rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="styles/style.css" />
 
   </head>
   <body>
 
+
     <div class='container' ng-app="fontsHandlers" ng-controller="fontCtrl" >
 
       <!-- Headline -->
-      <h1 class='headline'>EleganText</h1>
-
+      <h1 class='headline col-md-12 text-center'>EleganText</h1>
       <!-- Text View -->
-      <div class='fontView' >
+      <div class='fontView col-md-6 col-sm-6 col-xs-6' >
 
         <div class="fontViewText" >
           <h1 ng-style="{fontFamily: font, letterSpacing: h1letterSpacing, fontWeight: h1fontWeight}">{{ font }}</h1>
@@ -51,19 +52,19 @@
 
 
       <!-- Button -->
-      <div class="font-controls">
+      <div class="font-controls col-md-6 col-sm-6 col-xs-6">
         <div class="ng-style: {display: 'inline-block'}"   >
           <button  class="ng-style: {letterSpacing: '1.1px'} "type="button" name="randomFont" ng-click="applyNewFont()" >Change Font</button>
         </div>
 
         <div class='htmlInput'>
-          <h2>HTML Link</h2>
+          <h2 class="text-center">HTML Link</h2>
           <input type='url' value={{link}}></input>
         </div>
 
         <!-- Text Editor -->
         <div class='cssView'>
-          <h2>CSS</h2>
+          <h2 class="cssTitle text-center">CSS</h2>
           <textarea id='textEditor'></textarea>
         </div>
       </div>
